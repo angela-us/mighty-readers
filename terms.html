@@ -6,20 +6,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Terms of Service</title>
   <style>
-    body {
+/*     body {
       font-family: Arial, sans-serif;
       max-width: 800px;
       margin: 40px auto;
       padding: 20px;
       line-height: 1.6;
       color: #333;
-    }
+    } */
     h1 {
       color: #00bfff;
     }
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background: #f9f9f9;
+    padding-top: 160px; /* To offset the fixed header */
+}
+
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: #edf5f5;
+    padding: 30px 0 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
   </style>
 </head>
 <body>
+
+  <header class="fixed-header">
+    <h1 style="margin-bottom: 20px;">
+      <span style="color: red;">Mighty</span> 
+      <span style="color: green; font-weight: bold;">Readers'</span>
+      <span style="color: #00bfff; font-weight: bold;">Club</span>
+    </h1>
+    <h2 style="font-weight: normal; font-size: 1.2em; color: #4A5568; margin-top: 0;">
+      Unlock the power of reading
+    </h2>
+  </header>
+  
   <h1>Terms of Service</h1>
   <p><strong>Last updated:</strong> [Insert date]</p>
 
