@@ -65,55 +65,51 @@
             margin-bottom: 20px;
         }
 
-
-    .carousel-container {
-        position: relative;
-        width: 100%;
-        max-width: 1200px;
-        height: 500px;
-        overflow: hidden;
-        margin: auto;
-        /* border-radius: 10px; */
-    }
-
-    .carousel-slide {
-        width: 100%;
-        display: none;
-        border-radius: 10px;
-        opacity: 0;
-        transition:opacity 1s ease
-
-    }
-
-    .carousel-slide.active {
-        display: block;
-        opacity: 1;
-    }
-    /* Dots */
-    .dots {
-        position: absolute;
-        bottom: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        gap: 8px;
-    }
-
-    .dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.6);
-        cursor: pointer;
-        transition: background 0.3s;
-    }
-
-    .dot.active {
-        background: white;
-    }
-
-
-
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            height: 500px;
+            overflow: hidden;
+            margin: auto;
+            /* border-radius: 10px; */
+        }
+    
+        .carousel-slide {
+            width: 100%;
+            display: none;
+            border-radius: 10px;
+            opacity: 0;
+            transition:opacity 1s ease
+    
+        }
+    
+        .carousel-slide.active {
+            display: block;
+            opacity: 1;
+        }
+        /* Dots */
+        .dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+    
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+    
+        .dot.active {
+            background: white;
+        }
 
         
         .buttons a {
@@ -167,8 +163,6 @@
        <!-- Dots -->
        <div class="dots" id="dots"></div>
 </div>
-
-
 
 <script>
     
@@ -250,8 +244,8 @@
         <div class="buttons">
             <div style="display: flex;justify-content: center; gap: 10px; flex-wrap: wrap;">
                 <a href="https://forms.gle/sCNDncTirfTsw58B8" target="_blank" style="
-                width: 100px; 
-                height: 100px; 
+                width: 150px; 
+                height: 150px; 
                 display: flex; 
                 align-items: center; 
                 justify-content: center; 
@@ -263,12 +257,29 @@
                 font-size: 20px;
                 padding: 10px;
                 ">Sign Kids Up</a>
-    
+
+                <a href="https://forms.gle/kJejcaonpUbZ11EA7" target="_blank" style="
+                flex:1; 
+                width: 150px; 
+                height: 150px; 
+                display: flex; 
+                align-items: center; 
+                justify-content: center; 
+                border-radius: 50%;
+                background: rgb(26, 191, 227); 
+                color: white; 
+                text-decoration: none; 
+                font-size: 20px;
+                padding: 10px; 
+/*                 text-align: center; */
+                ">
+                Volunteer
+                </a>
             </div>
             <hr style="margin: 20px 0; border: none; border-top: 1px solid #ccc;">
    
         <div style="display: flex; justify-content: center; gap: 15px;">
-            <a href="https://forms.gle/kJejcaonpUbZ11EA7" target="_blank" style="
+<!--             <a href="https://forms.gle/kJejcaonpUbZ11EA7" target="_blank" style="
                 flex:1; 
                 border-radius: 15px; 
                 background: rgb(26, 191, 227); 
@@ -277,7 +288,7 @@
                 padding: 10px; 
                 text-align: center;">
                 Volunteer
-            </a>
+            </a> -->
             
             <a href="https://www.paypal.com/donate/?business=YVRDPTF8WWBAS&no_recurring=0&item_name=Support+Kids+Reading+Club+to+upgrade+reading+supplies%2C+train+volunteers%2C+and+maintain+website.+&currency_code=USD" target="_blank" style="
                 flex:1; 
