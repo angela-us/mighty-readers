@@ -73,4 +73,76 @@
   <header class="fixed-header">
     <h1 style="margin-bottom: 20px;">
       <span style="color: red;">Mighty</span> 
-      <span style="color: green; font-weight: bold;">Readers
+      <span style="color: green; font-weight: bold;">Readers'</span>
+      <span style="color: #00bfff; font-weight: bold;">Club</span>
+    </h1>
+    <h2 style="font-weight: normal; font-size: 1.2em; color: #4A5568; margin-top: 0;">
+      Unlock the power of reading
+    </h2>
+  </header>
+  
+  <h1>Testmonials</h1>
+  <p><strong>Last updated:</strong> <span id="last-updated"></span></p>
+
+  <script>
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const today = new Date().toLocaleDateString(undefined, options);
+    document.getElementById('last-updated').textContent = today;
+  </script>
+
+  <!-- Removed under construction message -->
+
+  <p style="font-size: 1.3em; font-weight: bold; margin-top: 1em;">
+    Our reading sessions have been going strong since 2024, and we’re incredibly grateful for all the support and enthusiasm from our community.
+  </p>
+
+  <p style="font-size: 1.3em; font-weight: bold;">
+    We’d love to hear what you think! Whether you’d like to leave a quick note of encouragement, offer anonymous feedback, or share a testimonial, please take a moment to fill out 
+    <a href="https://forms.gle/tZ9BRZhQufVEEMfk7" target="_blank" style="color: #007BFF; text-decoration: underline;">
+      this quick survey
+    </a>. Your voice helps us grow!
+  </p>
+
+  <!-- ✅ New Carousel Section -->
+  <div class="carousel-container">
+    <div class="carousel-slides" id="carousel-slides">
+      <div class="carousel-slide">“It's very difficult to get my child to read books at home, but he loves to come here to read with these high schoolers.”</div>
+      <div class="carousel-slide">“My son loves coming to the group reading sessions to read together with other kids.”</div>
+      <div class="carousel-slide">“A warm, welcoming space where kids fall in love with reading — thank you for what you do!”</div>
+    </div>
+    <div class="carousel-dots">
+      <span class="carousel-dot" onclick="goToSlide(0)"></span>
+      <span class="carousel-dot" onclick="goToSlide(1)"></span>
+      <span class="carousel-dot" onclick="goToSlide(2)"></span>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slidesContainer = document.getElementById('carousel-slides');
+    const dots = document.querySelectorAll('.carousel-dot');
+
+    function showSlide(index) {
+      const slideWidth = slidesContainer.clientWidth;
+      slidesContainer.style.transform = `translateX(-${index * slideWidth}px)`;
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[index].classList.add('active');
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      showSlide(currentSlide);
+    }
+
+    // Auto-slide every 6 seconds
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % dots.length;
+      showSlide(currentSlide);
+    }, 6000);
+
+    // Initialize
+    showSlide(currentSlide);
+  </script>
+
+</body>
+</html>
