@@ -1,35 +1,34 @@
-<!-- testmonial.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Testmonials</title>
+  <title>Testimonials</title>
   <style>
-
     h1 {
       color: #00bfff;
     }
     body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-   padding: 0 15px; /* horizontal padding */
-  padding-top: 160px; /* vertical padding to offset header height */
-    color: #333;
-    background: #f9f9f9;
-}
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0 15px;
+      padding-top: 160px;
+      color: #333;
+      background: #f9f9f9;
+    }
+    .fixed-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+      background-color: #edf5f5;
+      padding: 30px 0 20px 0;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
 
-.fixed-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 999;
-    background-color: #edf5f5;
-    padding: 30px 0 20px 0;
-    text-align: center;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
+
   </style>
 </head>
 <body>
@@ -44,29 +43,84 @@
       Unlock the power of reading
     </h2>
   </header>
-  
-  <h1>Testmonials</h1>
-<!--   <p><strong>Last updated:</strong> [Insert date]</p> -->
+
+  <h1>Testimonials</h1>
   <p><strong>Last updated:</strong> <span id="last-updated"></span></p>
 
-<script>
-  // Automatically set the current date in "Month Day, Year" format
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  const today = new Date().toLocaleDateString(undefined, options);
-  document.getElementById('last-updated').textContent = today;
-</script>
+  <script>
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const today = new Date().toLocaleDateString(undefined, options);
+    document.getElementById('last-updated').textContent = today;
+  </script>
 
-  <h2>This page is currently under construction — thanks so much for your patience! </h2>
-<p style="font-size: 1.3em; font-weight: bold; margin-top: 1em;">
-  Our reading sessions have been going strong since 2024, and we’re incredibly grateful for all the support and enthusiasm from our community.
+  <p style="font-size: 1.3em; font-weight: bold; margin-top: 1em;">
+    Our reading sessions have been going strong since 2024, and we’re incredibly grateful for all the support and enthusiasm from our community.
   </p>
 
-<p style="font-size: 1.3em; font-weight: bold;">
-  We’d love to hear what you think! Whether you’d like to leave a quick note of encouragement, offer anonymous feedback, or share a testimonial, please take a moment to fill out 
-  <a href="https://forms.gle/tZ9BRZhQufVEEMfk7" target="_blank" style="color: #007BFF; text-decoration: underline;">
-   this quick survey
-  </a>. Your voice helps us grow!
-</p>
+  <p style="font-size: 1.3em; font-weight: bold;">
+    We’d love to hear what you think!
+    <a href="https://forms.gle/tZ9BRZhQufVEEMfk7" target="_blank" style="color: #007BFF; text-decoration: underline;">
+      this quick survey
+    </a> only takes a minute. Your voice helps us grow!
+  </p>
+
+
+<!-- ✅ Upgraded Carousel Section -->
+<div class="carousel-container">
+  <div class="carousel-track" id="carousel-track">
+    <div class="carousel-slide">“It's very difficult to get my child to read books at home, but he loves to come here to read with these high schoolers.”</div>
+    <div class="carousel-slide">“My daughter loves coming to the group reading sessions to read together with other kids.”</div>
+    <div class="carousel-slide">“A warm, welcoming space where kids fall in love with reading — thank you for what you do!”</div>
+    <!-- Duplicate for smooth loop -->
+    <div class="carousel-slide">“It's very difficult to get my child to read books at home, but he loves to come here to read with these high schoolers.”</div>
+    <div class="carousel-slide">“My duaghter loves coming to the group reading sessions to read together with other kids.”</div>
+    <div class="carousel-slide">“A warm, welcoming space where kids fall in love with reading — thank you for what you do!”</div>
+  </div>
+</div>
+
+<style>
+  .carousel-container {
+    width: 100%;
+    overflow: hidden;
+    margin: 3em 0;
+    height: 360px; /* 3x the original height */
+/*     background: #f0f0f0; */
+  }
+
+  .carousel-track {
+    display: flex;
+    animation: scroll-left 30s linear infinite;
+  width: fit-content;
+  height: 100%;
+  }
+
+  .carousel-slide {
+    width: 45vw; /* each slide takes 1/3 of screen */
+  height: 100%;   /* match height of .carousel-container */
+    box-sizing: border-box;
+    padding: 2em;
+    margin: 0;
+    background: white;
+    border-radius: 12px;
+/*     box-shadow: 0 4px 12px rgba(0,0,0,0.1); */
+    font-size: 2.6em;
+    font-style: italic;
+      font-family: 'Inter', sans-serif;
+    margin-right: 2em;
+      flex-shrink: 0;
+  }
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+</style>
+
+  
 
 </body>
 </html>
