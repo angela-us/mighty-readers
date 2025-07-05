@@ -1,10 +1,9 @@
-<!-- volunteer.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Testmonials</title>
+  <title>Testimonials</title>
   <style>
     h1 {
       color: #00bfff;
@@ -31,29 +30,36 @@
 
     /* Carousel styles */
     .carousel-container {
+      width: 100%;
       max-width: 600px;
       margin: 2em auto;
       overflow: hidden;
       position: relative;
     }
+
     .carousel-slides {
       display: flex;
+      width: 1800px; /* 3 slides x 600px */
       transition: transform 0.5s ease;
     }
+
     .carousel-slide {
-      min-width: 100%;
+      width: 600px;
       box-sizing: border-box;
       padding: 1em;
       background: #fff;
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       font-style: italic;
       font-size: 1.1em;
+      flex-shrink: 0;
     }
+
     .carousel-dots {
       text-align: center;
       margin-top: 1em;
     }
+
     .carousel-dot {
       height: 12px;
       width: 12px;
@@ -63,6 +69,7 @@
       display: inline-block;
       cursor: pointer;
     }
+
     .carousel-dot.active {
       background-color: #333;
     }
@@ -80,8 +87,8 @@
       Unlock the power of reading
     </h2>
   </header>
-  
-  <h1>Testmonials</h1>
+
+  <h1>Testimonials</h1>
   <p><strong>Last updated:</strong> <span id="last-updated"></span></p>
 
   <script>
@@ -89,8 +96,6 @@
     const today = new Date().toLocaleDateString(undefined, options);
     document.getElementById('last-updated').textContent = today;
   </script>
-
-  <!-- Removed under construction message -->
 
   <p style="font-size: 1.3em; font-weight: bold; margin-top: 1em;">
     Our reading sessions have been going strong since 2024, and we’re incredibly grateful for all the support and enthusiasm from our community.
@@ -103,7 +108,7 @@
     </a>. Your voice helps us grow!
   </p>
 
-  <!-- ✅ New Carousel Section -->
+  <!-- ✅ Carousel Section -->
   <div class="carousel-container">
     <div class="carousel-slides" id="carousel-slides">
       <div class="carousel-slide">“It's very difficult to get my child to read books at home, but he loves to come here to read with these high schoolers.”</div>
@@ -118,30 +123,35 @@
   </div>
 
   <script>
-    let currentSlide = 0;
-    const slidesContainer = document.getElementById('carousel-slides');
-    const dots = document.querySelectorAll('.carousel-dot');
+    document.addEventListener('DOMContentLoaded', () => {
+      let currentSlide = 0;
+      const slides = document.getElementById('carousel-slides');
+      const dots = document.querySelectorAll('.carousel-dot');
+      const slideWidth = 600; // Matches .carousel-slide width
 
-    function showSlide(index) {
-      const slideWidth = slidesContainer.clientWidth;
-      slidesContainer.style.transform = `translateX(-${index * slideWidth}px)`;
-      dots.forEach(dot => dot.classList.remove('active'));
-      dots[index].classList.add('active');
-    }
+      function showSlide(index) {
+        slides.style.transform = `translateX(-${index * slideWidth}px)`;
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[index].classList.add('active');
+      }
 
-    function goToSlide(index) {
-      currentSlide = index;
+      function goToSlide(index) {
+        currentSlide = index;
+        showSlide(currentSlide);
+      }
+
+      // Initialize
       showSlide(currentSlide);
-    }
 
-    // Auto-slide every 6 seconds
-    setInterval(() => {
-      currentSlide = (currentSlide + 1) % dots.length;
-      showSlide(currentSlide);
-    }, 6000);
+      // Auto-slide every 6 seconds
+      setInterval(() => {
+        currentSlide = (currentSlide + 1) % dots.length;
+        showSlide(currentSlide);
+      }, 6000);
 
-    // Initialize
-    showSlide(currentSlide);
+      // Attach functions to global scope for inline onclick
+      window.goToSlide = goToSlide;
+    });
   </script>
 
 </body>
