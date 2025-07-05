@@ -108,51 +108,59 @@
     </a>. Your voice helps us grow!
   </p>
 
-  <!-- ✅ Carousel Section -->
-  <div class="carousel-container">
-    <div class="carousel-slides" id="carousel-slides">
-      <div class="carousel-slide">“It's very difficult to get my child to read books at home, but he loves to come here to read with these high schoolers.”</div>
-      <div class="carousel-slide">“My son loves coming to the group reading sessions to read together with other kids.”</div>
-      <div class="carousel-slide">“A warm, welcoming space where kids fall in love with reading — thank you for what you do!”</div>
-    </div>
-    <div class="carousel-dots">
-      <span class="carousel-dot" onclick="goToSlide(0)"></span>
-      <span class="carousel-dot" onclick="goToSlide(1)"></span>
-      <span class="carousel-dot" onclick="goToSlide(2)"></span>
-    </div>
+
+<!-- ✅ Upgraded Carousel Section -->
+<div class="carousel-container">
+  <div class="carousel-track" id="carousel-track">
+    <div class="carousel-slide">“It's very difficult to get my child to read books at home, but he loves to come here to read with these high schoolers.”</div>
+    <div class="carousel-slide">“My son loves coming to the group reading sessions to read together with other kids.”</div>
+    <div class="carousel-slide">“A warm, welcoming space where kids fall in love with reading — thank you for what you do!”</div>
+    <!-- Duplicate for smooth loop -->
+    <div class="carousel-slide">“It's very difficult to get my child to read books at home, but he loves to come here to read with these high schoolers.”</div>
+    <div class="carousel-slide">“My son loves coming to the group reading sessions to read together with other kids.”</div>
+    <div class="carousel-slide">“A warm, welcoming space where kids fall in love with reading — thank you for what you do!”</div>
   </div>
+</div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      let currentSlide = 0;
-      const slides = document.getElementById('carousel-slides');
-      const dots = document.querySelectorAll('.carousel-dot');
-      const slideWidth = 600; // Matches .carousel-slide width
+<style>
+  .carousel-container {
+    width: 100%;
+    overflow: hidden;
+    margin: 3em 0;
+    height: 360px; /* 3x the original height */
+    background: #f0f0f0;
+  }
 
-      function showSlide(index) {
-        slides.style.transform = `translateX(-${index * slideWidth}px)`;
-        dots.forEach(dot => dot.classList.remove('active'));
-        dots[index].classList.add('active');
-      }
+  .carousel-track {
+    display: flex;
+    animation: scroll-left 30s linear infinite;
+    width: max-content;
+  }
 
-      function goToSlide(index) {
-        currentSlide = index;
-        showSlide(currentSlide);
-      }
+  .carousel-slide {
+    flex: 0 0 33.33%;
+    box-sizing: border-box;
+    padding: 2em;
+    margin: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    font-size: 1.3em;
+    font-style: italic;
+    margin-right: 2em;
+  }
 
-      // Initialize
-      showSlide(currentSlide);
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+</style>
 
-      // Auto-slide every 6 seconds
-      setInterval(() => {
-        currentSlide = (currentSlide + 1) % dots.length;
-        showSlide(currentSlide);
-      }, 6000);
-
-      // Attach functions to global scope for inline onclick
-      window.goToSlide = goToSlide;
-    });
-  </script>
+  
 
 </body>
 </html>
